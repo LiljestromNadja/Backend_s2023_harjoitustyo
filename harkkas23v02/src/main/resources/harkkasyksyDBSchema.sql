@@ -1,4 +1,4 @@
-#updated 10-11-2023 harkkasyksydb
+#updated 10-11-2023 harkkasyksydb adtype
 
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,13 +38,19 @@ PRIMARY KEY (adtypeid)
 );
 
 INSERT INTO adtype (`name`) 
-VALUES ("Helsinki"),
-("Espoo"),
-("Vantaa"),
-("Kaunianen"),
-("Joensuu"), 
-("Kempele"), 
-("Kotka");
+VALUES ("Helsinki ostetaan"),
+("Helsinki myydään"),
+("Helsinki annetaan"),
+("Espoo ostetaan"),
+("Espoo myydään"),
+("Espoo annetaan"),
+("Vantaa ostetaan"),
+("Vantaa myydään"),
+("Vantaa annetaan"),
+("Kaunianen ilmoitukset"),
+("Joensuu ilmoitukset"), 
+("Kempele ilmoitukset"), 
+("Kotka ilmoitukset");
 
 
 CREATE TABLE article(
