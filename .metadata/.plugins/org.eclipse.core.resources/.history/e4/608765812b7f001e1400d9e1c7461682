@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Articlelist</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" /> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+</head>
+<body>
+	<div>
+		<a href="/index"><button class="text-left btn btn-light btn-sm">Back to index.html</button></a> 
+		<a href="/cities"><button class="text-left btn btn-light btn-sm">All Categories</button></a>
+	</div>
+
+	<div class="text-right">
+		<i>Olet kirjautunut käyttäjänimellä: <b sec:authentication="name"></b>,
+			ja käyttäjäroolisi on: <b sec:authentication="principal.authorities"></b></i>
+
+		<br>
+		<form class="text-right" th:action="@{/logout}" method="post">
+			<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-dark" />
+		</form>
+
+	</div>    
+	<h3>Articles</h3>
+	<table>
+	<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Isbn</th>
+		<th>Year</th>
+		<th>Price</th>
+		<th>Category</th>
+		<th>Username</th>
+		<th>User id</th>
+		<th></th>
+		<th></th>
+		<th>Articleid</th>
+		<th>Comments</th>
+	</tr>
+	<tr th:each = "article : ${articles}">   		<!-- MUISTA DOLLARIT, muuten voi mennä tovi jos toinenkin ihmettelyyn-->
+			<td th:text="${article.title}"></td>
+			<td th:text="${article.author}"></td>
+			<td th:text="${article.isbn}"></td>
+			<td th:text="${article.publicationYear}"></td>
+			<td th:text="${article.price}"></td>
+			<td th:text="${article?.city?.name}"></td>	<!-- kysymysmerkki == jos kategoriaa ei ole -->	
+			<td th:text="${article?.applicationuser?.username}"></td>	
+			<td th:text="${article?.applicationuser?.id}"></td>		
+			<!-- <td><a th:href="@{/delete/{id}(id=${article.id})}">Delete</a>	</td> -->
+			<!-- <td><a th:href="@{/editArticle/{id}(id=${article.id})}">Edit</a></td>  -->
+<!--Näkyy kaikille admin käyttäjille  -->	<!--<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editArticle/{id}(id=${article.id})}" class="btn btn-xs btn-success btn-sm">Edit</a></td>-->	
+<!--Näkyy kaikille admin käyttäjille  -->	<!--<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${article.id})}" class="btn btn-xs btn-danger btn-sm">Delete</a></td> -->
+
+	
+<!-- 24102023 Näkyy vain kyseisen kirjan lisääjälle, jonka rooli on USER tai ADMIN: -->	
+<!-- Muista myös ArticleControllerin muutokset jos muutat tätä -->		
+<!-- 		<td th:if="${article.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')"><a th:href="@{/editArticle/{id}(id=${article.id})}" class="btn btn-xs btn-success btn-sm">Edit</a></td>
+			<td th:if="${article.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')"><a th:href="@{/delete/{id}(id=${article.id})}" class="btn btn-xs btn-danger btn-sm">Delete</a></td>  -->
+			
+<!-- USER voi muokata/poistaa vain omiaan, ADMIN kaikkia: -->	
+<!-- 24102023 -->
+			<td th:if="${article.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER')"><a th:href="@{/editArticle/{id}(id=${article.id})}" class="btn btn-dark btn-sm">Edit</a></td>
+			<td th:if="${article.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER')"><a th:href="@{/delete/{id}(id=${article.id})}" class="btn btn-xs btn-danger btn-sm">Delete</a></td>
+
+<!-- Jos USERILLA ei muokkausoikeutta kyseiseen kirjaan -->	
+<!-- 26102023 -->
+			<td th:unless="${article.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER')">   </td>
+			<td th:unless="${article.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER')">   </td>
+
+<!-- ADMIN voi muokata/poistaa kaikkia -->		
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editArticle/{id}(id=${article.id})}" class="btn btn-xs btn-dark btn-sm">Edit</a></td>	
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${article.id})}" class="btn btn-xs btn-danger btn-sm">Delete</a></td> 		
+<!--Ota pois valmiista  -->			<td th:text="${article.id}"></td>
+
+<!-- Kirjan kommentit voi listata roolissa ADMIN tai USER -->			
+	  		<td sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')"><a th:href="@{'/article/' + ${article.id} + '/comments'}" class="btn btn-light btn-sm">Comments</a></td>
+		<!--	<td sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')"><a th:href="@{/listComments}" class="btn btn-xs btn-success btn-sm">Comments</a></td> -->
+
+
+
+
+<!-- Kirjaa voi kommentoida ADMIN/USER -->
+		<td><a sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')" th:href="@{/addComment/{id}(id=${article.id})}" ><button
+			class="btn btn-light btn-sm">Add new Comment</button></a> </td>
+
+
+
+	
+
+
+	</tr>				
+	</table>
+	<br></br>
+	
+	<a sec:authorize="hasAuthority('ADMIN')" href="/add"><button class="btn btn-dark btn-sm">Add new Article</button></a>
+	<a sec:authorize="hasAuthority('USER')" href="/add"><button class="btn btn-dark btn-sm">Add new Article</button></a>
+	<br></br>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 
+	<a sec:authorize="hasAuthority('ADMIN')" href="/addCategory"><button class="btn btn-light">Add Category</button></a>
+	
+	 -->
+	
+	
+	<!-- 
+	
+	<br></br>
+	<a href="/cities"><button>All Categories</button></a>
+	
+	 -->
+	
+	<!--<a href="/add" class="btn btn-primary">Add article</a>-->
+	
+	
+	<!-- 
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+	
+	 -->
+	
+	
+	
+</body>
+</html>

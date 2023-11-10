@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Lisää kommentti</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Bootstrap linkki vaihdettu 30-10-2023 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+</head>
+<body>
+	<div>
+		<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a> 
+		<a href="/cities"><button class="text-left btn btn-light btn-sm">Näytä kaikki kaupungit</button></a> 
+		<a href="/articlelist"><button class="text-left btn btn-light btn-sm">Takaisin myynti-ilmoituksiin</button></a>
+	</div>
+
+	<div class="text-right">
+		<i>You have signed in with username: <b sec:authentication="name"></b>,
+			and your role is: <b sec:authentication="principal.authorities"></b></i>
+
+		</br>
+
+		<form class="text-right" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-dark" />
+		</form>
+
+	</div>
+
+
+
+	<h3>Kommentoi ilmoitusta</h3>
+	<br></br>
+	<div>
+		<form th:object="${comment}" th:action="@{/saveComment}" action="#" method="post"> <!-- Viedään "@{saveComment}"endpointiin  -->
+			
+			<label for="commentmessage">Kirjoita kommenttisi tähän:</label> 
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<textarea id="commentmessage" th:field="*{commentmessage}" rows="4" cols="50" th:placeholder="'Olet kommentoimassa myynti-ilmoitusta' + ': ' + *{article.title}"></textarea>			
+<!--otettu pois 01-11-2023 
+			</br><input type="text" style="width:200px; height:80px" onkeydown="return event.keyCode != 13;" id="commentmessage" th:field="*{commentmessage}" /> -->
+			<div th:if="${#fields.hasErrors('commentmessage')}" th:errors="*{commentmessage}">Error</div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<input type="hidden" th:field="*{article.id}" />
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+    		<label for="appuserlist">Käyttäjä: </label>
+			<select style="width: 200px" id="appuserlist" th:field="*{applicationuser}" class="form-control">
+       			<option th:each="applicationuser: ${applicationuser}" th:value="${applicationuser.id}" th:text="${applicationuser.username}"></option>
+    		</select> 
+    		
+    		<div style="clear: both; display: block; height: 40px;"></div>
+    		<input class="btn btn-dark btn-sm" type="submit" value="Lähetä kommentti"></input>
+		</form>
+
+
+	</div>
+</body>
+</html>
+

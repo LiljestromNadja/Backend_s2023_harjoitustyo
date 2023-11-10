@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Lisää uusi käyttäjä</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!-- Bootstrap-linkki vaihdettu tähän 04-10-2023 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+		<!-- Lisättiin tyyli, bootstrap 4.0 -->
+	</head>
+	<body>
+		<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a>
+		
+		<div class="text-right">
+			<i>Olet kirjautunut käyttäjänimellä: <b sec:authentication="name"></b>, ja käyttäjäroolisi on: <b sec:authentication="principal.authorities"></b></i>
+			<br>
+			<form class="text-right" th:action="@{/logout}" method="post">
+				<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-dark" />
+			</form>
+		</div> 
+		
+		 
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		<h1 style="text-align: center;  font-size: 25px">Rekisteröi uusi käyttäjä</h1>
+		
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		
+		<form th:object="${newuser}" th:action="@{/admin/saveuser}" action="#" method="post">
+			<div style="text-align: center">
+				<label> <input type="text" th:field="*{firstname}" placeholder="Etunimi"/></label>
+				<p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" style="font-size: 12px">Error with First name</p>
+			</div>
+			<div style="text-align: center">
+				<label> <input type="text" th:field="*{lastname}" placeholder="Sukunimi" /></label>
+				<p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" style="font-size: 12px">Error with Last name</p>
+			</div>
+			<div style="text-align: center">
+				<label> <input type="text" th:field="*{username}" placeholder="Käyttäjänimi"/></label>
+				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="font-size: 12px">Error with Username </p>
+			</div>
+			<div style="text-align: center">
+				<label> <input type="text" th:field="*{role}" placeholder="Rooli: USER tai ADMIN" /></label>
+				<p th:if="${#fields.hasErrors('role')}" th:errors="*{role}" style="font-size: 12px">Error with User Role</p>
+			</div>
+			<div style="text-align: center">
+				<label> <input type="password" th:field="*{password}" placeholder="Salasana" /></label>
+				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="font-size: 12px">Error with Password </p>
+			</div>
+			<div style="text-align: center">
+				<label> <input type="password" th:field="*{passwordCheck}" placeholder="Salasana uudelleen" /></label>
+				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}" style="font-size: 12px">Password Match Error</p>
+			</div>
+			<div style="text-align: center">
+			<input type="submit" value="Tallenna uusi käyttäjä"></input>
+			</div>
+		</form>
+		
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		<a sec:authorize="hasAuthority('ADMIN')" href="/admin/userlist"><button type="button" class="btn btn-light">Takaisin käyttäjälistaukseen</button></a><br>
+	
+	</body>
+</html>

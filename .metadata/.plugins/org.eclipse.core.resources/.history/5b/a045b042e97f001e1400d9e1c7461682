@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Lisää myytävä tuote</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Bootstrap linkki vaihdettu 09-11-2023 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+</head>
+<body>
+	<div>
+
+		<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a>
+		<a href="/cities"><button class="text-left btn btn-light btn-sm">Näytä kaikki kaupungit</button></a> 
+		<a href="/articlelist"><button class="text-left btn btn-light btn-sm">Takaisin myynti-ilmoituksiin</button></a>
+
+	</div>
+
+	<div class="text-right">
+		<i>You have signed in with username: <b sec:authentication="name"></b>,
+			and your role is: <b sec:authentication="principal.authorities"></b></i>
+
+		</br>
+
+		<form class="text-right" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-dark" />
+		</form>
+
+	</div>
+
+	<h1 style="text-align: center;font-size: 25px">Lisää myynti-ilmoitus</h1>
+	
+	<div style="clear: both; display: block; height: 40px;"></div>
+	
+	<div>
+		<form th:object="${article}" th:action="@{save}" action="#"	method="post">
+			<!-- Viedään "@{save}"endpointiin  -->
+			
+			<label for="title">Myytävä tuote</label> 
+			<input type="text" id="title" th:field="*{title}" />
+			<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<label for="description">Kuvaus</label> 
+			<input type="text" id="description" th:field="*{description}" />
+			<div th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Error</div> <!-- Jos syöte ei halutunlaista -->
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<label for="publisher">Ilmoituksen jättäjän nimi / puhelinnumero</label> 
+			<input type="text" th:field="*{publisher}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+<!--  		<label for="dateadded">Ilmoituksen jättöpäivä</label> <input type="text" th:field="*{dateadded}" />
+			<div style="clear: both; display: block; height: 10px;"></div> Käyttäjä ei täytä-->
+
+			<label for="price">Hinta</label> <input type="number" th:field="*{price}" step="0.01" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<div style="clear: both; display: block; height: 10px;"></div> 
+			<label for="catlist">Kaupunki, jossa tuote sijaitsee</label> 
+			<select style="width: 200px" id="citylist" th:field="*{city}" class=form-control>
+					<option th:each="city: ${cities}" th:value="${city.cityid}" th:text="${city.name}"></option>
+			</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			
+			<label for="appuserlist">Käyttäjä </label>
+			<select style="width: 200px" id="appuserlist" th:field="*{applicationuser}" class="form-control">				
+				<option th:each="applicationuser: ${applicationuser}" th:value="${applicationuser.id}" th:text="${applicationuser.username}"></option>
+			</select> 
+			
+			<div style="clear: both; display: block; height: 40px;"></div>
+			
+			<input class="btn btn-dark btn-sm" type="submit" value="Tallenna ilmoitus"></input>
+		</form>
+
+
+	</div>
+</body>
+</html>
+
+
+<!-- Muistettavaa -->
+<!-- class="form-control" vaikuttaa elementin ulkoasuun  -->
+<!-- Esim,
+<label for="citylist">City</label> <select id="citylist" th:field="*{city}" class="form-control"> 
+
+form-controlilla saa valikon koko sivun levyiseksi-->

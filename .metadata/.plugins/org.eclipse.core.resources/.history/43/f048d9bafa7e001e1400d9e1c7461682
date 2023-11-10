@@ -1,0 +1,81 @@
+package hh.bookstore18.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import hh.bookstore18.domain.Category;
+import hh.bookstore18.domain.CategoryRepository;
+import jakarta.validation.Valid;
+
+@Controller //palauttaa HTML-sivun
+public class CategoryController {
+
+
+	@Autowired
+	CategoryRepository crepository;
+
+	@GetMapping("/categories")
+	public String getCategories(Model model) {
+		System.out.println("LISTATAAN KAIKKI KATEGORIAT:");
+		model.addAttribute("categories", crepository.findAll());
+		return "categories";
+	}
+
+	@GetMapping("/addCategory")
+	public String addCategory(Model model) {
+		model.addAttribute("category", new Category());
+		return "addCategory";
+	}
+
+	
+	@PostMapping("/saveCategory")
+	public String saveCategory(@Valid Category category, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			System.out.println("some error happened");
+			return "addCategory";
+		}
+
+		System.out.println("CategoryController --- NEW CATEGORY SAVED: " + category);
+		crepository.save(category);
+		return "redirect:categories";
+	}
+	
+
+	
+
+	
+	//18102023
+	@PreAuthorize("hasAuthority('ADMIN')") //metoditason tarkistus onko oikeus
+	@RequestMapping(value = "/editCategory/{id}", method = RequestMethod.GET)
+	public String editCategory(@PathVariable("id") Long categoryid, Model model) {
+		model.addAttribute("category", crepository.findById(categoryid)); 
+		// model.addAttribute("tuoteluokat", tuoteluokkarepository.findAll());
+		return "editCategory";
+	}
+	
+	
+	//18102023
+	// poistaminen  
+	@PreAuthorize("hasAuthority('ADMIN')") //metoditason tarkistus, onko oikeus poistaa
+	@GetMapping("deleteCategory/{id}")
+	public String deleteCategory(@PathVariable("id") Long categoryid, Model model) {
+		System.out.println("DELETE CATEGORY SUCCESSFULLY, id " + categoryid + " ---- CategoryController.java");
+		if (crepository.findById(categoryid).get().getBooks().isEmpty()) {
+			crepository.deleteById(categoryid);
+		} else {
+			System.out.println("CATEGORY HAS BOOKS, UNABLE TO DELETE CATEGORY, id" + categoryid +" ---- CategoryController.java");
+		}
+
+		return "redirect:../categories";
+	}
+
+}
+

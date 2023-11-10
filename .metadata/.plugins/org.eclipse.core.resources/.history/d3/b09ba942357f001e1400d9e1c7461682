@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Muokkaa ilmoitusta</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Bootstrap-linkki vaihdettu tähän 04-10-2023 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+<!-- Lisättiin tyyli, bootstrap 4.0 -->
+</head>
+<body>
+		<a href="/index"><button>Back to index.html</button></a>
+				<a href="/booklist"><button
+				class="text-left btn btn-light btn-sm">Back to Booklist</button></a>
+	<div class="text-right">
+		<i>You have signed in with username: <b sec:authentication="name"></b>,
+			and your role is: <b sec:authentication="principal.authorities"></b>
+		</i>
+		</br>
+		<form class="text-right" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-dark" />
+		</form>
+	</div>  
+    
+	<h3>Muokkaa tuotteen myynti-ilmoitusta</h3>
+	</br>
+	<div>
+	<form th:object="${book}" th:action="@{../save}" action="#" method="post"> <!-- Tässä menee @{/save} -->
+	
+		  	<input type="hidden" id="id" th:field="*{id}" /><!-- muokatessa id:n täytyy mennä mukana backendin puolelle, ettei luoda uutta bookia -->
+		  	<div>
+		  	<label>Title</label>
+			<input type="text" th:field="*{title}" />
+			</div>
+			<div>
+		  	<label>Author</label>
+		  	<input type="text" th:field="*{author}" />
+			</div>
+			<div>
+		  	<label>ISBN</label>
+			<input type="text" th:field="*{isbn}" />
+			</div>
+			<div>		
+		  	<label>Year</label>
+			<input type="number" th:field="*{publicationYear}" />
+			</div>
+			<div>			
+		  	<label>Price</label>
+			<input type="number" th:field="*{price}" step="0.01"  />					
+			</div>
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="catlist">Category</label>
+			 <select id="catlist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select> 
+ 	  		<div>			
+<!--		<label>User id</label> <!--book.applicationuserid kulkee piilossa -->
+			<input type="hidden" th:field="*{applicationuser.id}" />			
+			</div> 
+     		<div style="clear: both; display: block; height: 10px;"></div>
+     		
+<!-- 		<label for="appuserlist">User</label><!-- Lisätty 20102023, käyttäjien listaus, jos on tarkoitus päästä muokkaan kirjan lisääjää muista muuttaa myös Controller -->
+<!--  		<select id="appuserlist" th:field="*{applicationuser}" class="form-control">
+       			<option th:each="applicationuser: ${applicationusers}" th:value="${applicationuser.id}" th:text="${applicationuser.username}"></option>
+    		</select> -->	
+			<br>
+			
+			<input type="submit" value="Save"></input>
+		</form>
+	
+	</div>
+
+ 	
+</body>
+</html>

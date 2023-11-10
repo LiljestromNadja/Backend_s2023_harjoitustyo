@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Muokkaa kaupunkia</title> <!-- 18102023 -->
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <!-- Bootstrap-linkki vaihdettu tähän 04-10-2023 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+		<!-- Lisättiin tyyli, bootstrap 4.0 -->
+	</head>
+	<body>
+			<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a>
+			<a href="/cities"><button class="text-left btn btn-light btn-sm">Takaisin kaupunkilistaukseen</button></a>
+			
+		<div class="text-right">
+			<i>Olet kirjautunut käyttäjänimellä: <b sec:authentication="name"></b>,	ja käyttäjäroolisi on: <b sec:authentication="principal.authorities"></b></i>
+			<br>
+			<form class="text-right" th:action="@{/logout}" method="post">
+				<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-dark" />
+			</form>
+		</div>  
+	    <div style="clear: both; display: block; height: 40px;"></div>
+		<h1 style="text-align: center; font-size: 25px">Muokkaa kaupunkia</h1>
+		<div style="clear: both; display: block; height: 40px;"></div>
+		</br>
+		<div>
+			<form th:object="${city}" th:action="@{../saveCity}" action="#" method="post"> 	 					<!-- Tässä menee @{/saveCaegory} -->
+		
+			  	<input type="hidden" id="cityid" th:field="*{cityid}" />												<!-- muokatessa id:n täytyy mennä mukana backendin puolelle, ettei luoda uutta kategoriaa -->
+			  	<div>
+				  	<label>Kaupungin nimi</label> 
+					<input type="text" th:field="*{name}" />
+				</div>
+				
+				<br>
+				<input  type="submit" value="Tallenna muutokset"></input>
+			</form>
+		
+		</div>
+		
+	
+	
+	
+	 	
+	</body>
+</html>

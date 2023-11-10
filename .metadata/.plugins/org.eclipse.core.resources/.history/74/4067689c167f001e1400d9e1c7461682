@@ -1,0 +1,143 @@
+package hh.harkkas23v01.web;
+
+/***
+ * Muista apien salliminen/kieltäminen/rajoittaminen 
+ * WebSecurityConfig.java
+ * 
+ * **/
+
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import hh.harkkas23v01.domain.Article;
+import hh.harkkas23v01.domain.ArticleRepository;
+import hh.harkkas23v01.domain.Comment;
+import hh.harkkas23v01.domain.CommentRepository;
+
+@RestController //palauttaa JSONia
+//polku voidaan määrittää myös tässä: @RequestMapping("/api/bookstore")
+public class RestBookStoreController {
+	
+	private static final Logger log = LoggerFactory.getLogger(RestHarkkaController.class);
+	
+	//injektoidaan Bookrepository RestHarkkaController-luokalle
+	@Autowired
+	ArticleRepository bookRepository;
+	
+	// Injektoidaan CommentRepostitory RestHarkkaController -luokalle
+	@Autowired
+	CommentRepository commentRepository;
+	
+
+	
+	//palautetaan lista kirjoista http://localhost:8080/booksjson
+	@GetMapping("/booksjson")
+	public Iterable<Article> getBooks() {
+		log.info("nouda ja palauta lista kirjoista");
+		return bookRepository.findAll();
+	}
+	
+	//lisätään uusi kirja 
+	@PostMapping("booksjson")
+	Article newBook(@RequestBody Article newBook) {
+		log.info("Lisätäään kirja " + newBook);
+		return bookRepository.save(newBook);
+	}
+	
+	// muokataan olemassa olevaa kirjaa
+		@PutMapping("/booksjson/{id}")
+		Article editBook(@RequestBody Article editedBook, @PathVariable Long id) {
+			log.info("Muokataan kirjaa " + editedBook);
+			editedBook.setId(id);
+			return bookRepository.save(editedBook);
+		}
+	
+	/*//delete book
+	@DeleteMapping("/booksjson/{id}")
+	void deleteBook(@PathVariable Long id) {
+		bookRepository.deleteById(id);
+	}*/
+	
+	//poistetaan kirja
+	@DeleteMapping("/booksjson/{id}")
+	public Iterable<Article> deleteBook(@PathVariable Long id) {
+		log.info("Poistetaan kirja, id: " + id);
+		bookRepository.deleteById(id);
+		return bookRepository.findAll();
+	}
+	
+	//etsitään ja palautetaan yksi kirja
+	@GetMapping("/booksjson/{id}")
+	Optional<Article> getBook(@PathVariable Long id) {
+		log.info("Etsitään kirja, id: " + id);
+		return bookRepository.findById(id);
+		
+	}
+	
+	//COMMENTS
+	
+	
+	//palautetaan lista kommenteista GET http://localhost:8080/commentsjson
+	@GetMapping("/commentsjson")
+	public Iterable<Comment> getComments() {
+		System.out.println("---KAIKKI KOMMENTIT --- RestHarkkaController");
+		return commentRepository.findAll();
+	}
+	
+	
+	// Palautetaan yksi kommentti id:n perusteella GET http://localhost:8080/commentsjson/1
+	@GetMapping("/commentsjson/{id}")
+	Optional<Comment> getComment(@PathVariable Long id) {
+		System.out.println("---PALAUTETAAN KOMMENTTI, JONKA ID: " + id + " --- RestHarkkaController");
+		return commentRepository.findById(id);
+		
+	}
+	
+	// Lisätään uusi kommentti POST http://localhost:8080/commentsjson
+	
+	@PostMapping("/commentsjson")
+	Comment newComment(@RequestBody Comment newComment) {
+		System.out.println("---LISÄTÄÄN KOMMENTTI " + newComment + " --- RestHarkkaController");
+		return commentRepository.save(newComment);
+	}
+	
+	// Muokataan kommenttia id:n perusteella PUT http://localhost:8080/commentsjson/1
+	@PutMapping("/commentsjson/{id}")
+	Comment editComment(@RequestBody Comment editedComment, @PathVariable Long id) {
+		System.out.println("---MUOKATAAN KOMMENTTIA, JONKA ID: " + id + " --- RestHarkkaController");
+		editedComment.setCommentid(id);
+		return commentRepository.save(editedComment);
+	}
+	
+	
+	// Poistetaan kommentti DELETE http://localhost:8080/commentsjson/2
+	@DeleteMapping("/commentsjson/{id}")
+	public Iterable<Comment> deleteComment(@PathVariable Long id) {
+		
+		System.out.println("---POISTETAAN KOMMENTTI, JONKA ID: " + id + " --- RestHarkkaController");
+		commentRepository.deleteById(id);
+		return commentRepository.findAll();
+	}
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+
+}

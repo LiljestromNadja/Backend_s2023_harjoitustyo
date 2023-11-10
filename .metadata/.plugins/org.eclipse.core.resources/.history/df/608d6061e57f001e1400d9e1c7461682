@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Kaikki kommentit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Bootstrap-linkki vaihdettu 30-10-2023 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+	<!-- Lisättiin tyyli, bootstrap 4.0 -->
+	</head>
+	<body>
+		<div>
+			<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a> 
+			<a href="/articlelist"><button class="text-left btn btn-light btn-sm">Myynti-ilmoitukset</button></a>
+		</div>
+	
+		<div class="text-right">
+			<i>Olet kirjautunut käyttäjänimellä: <b sec:authentication="name"></b>,
+				ja käyttäjäroolisi on: <b sec:authentication="principal.authorities"></b></i>
+	
+			<br>
+			<form class="text-right" th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-sm btn-dark" />
+			</form>
+	
+		</div>
+		<h3 style="text-align: center">Kaikki kommentit</h3>
+		
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		<table class="table table-hover table-sm">
+			<tr>
+				<th>Kommentin sisältö</th> <!-- th == tableHeader -->
+				<th>Tuotteen id</th>
+				<th>Tuotteen otsikko</th>
+				<th>Käyttäjän id</th>
+				<th>Käyttäjänimi</th>
+				<th>Kommentti jätetty</th>
+				<th sec:authorize="hasAuthority('ADMIN')">Adminin alue</th>
+				</br>
+			</tr>
+			
+			<tr th:each="comment : ${comments}">
+				<td th:text="${comment.commentmessage}"></td>
+				<td th:text="${comment?.article?.id}"></td>
+				<td th:text="${comment?.article?.title}"></td>
+				<td th:text="${comment?.applicationuser?.id}"></td>
+				<td th:text="${comment?.applicationuser?.username}"></td>
+				<td th:text="${comment.commentcreated}"></td> 
+				
+				<!-- Vain ADMIN-roolin omaavalla on oikeus poistaa kommentteja -->
+				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deleteComment/{id}(id=${comment.commentid})}" class="btn btn-xs btn-danger btn-sm">Poista</a></td>
+			</tr>
+		</table>
+		
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		<a href="/articlelist"><button class="text-left btn btn-light btn-sm">Takaisin myynti-ilmoituksiin</button></a>
+		
+		
+		<!-- USER tai ADMIN voi lisätä kommentin. Alloleva linkki osoittaa endpointiin chooseArticleToComment,
+		jossa kommentti liitetään käyttäjän listauksesta valitsemaan myynti-ilmoitukseen-->
+		<a sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')"  th:href="@{chooseArticleToComment/}">
+			<button class="text-left btn btn-dark btn-sm">Kommentoi valitsemaasi ilmoitusta</button>
+		</a>
+
+	</body>
+</html>
