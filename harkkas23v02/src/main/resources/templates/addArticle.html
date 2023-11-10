@@ -58,7 +58,7 @@
 			<div style="clear: both; display: block; height: 10px;"></div>
 
 			<div style="clear: both; display: block; height: 10px;"></div> 
-			<label for="adtypelist" style="width:250px; text-align: left;">Ilmoitustyyppi</label> 
+			<label for="adtypelist" style="width:210px; text-align: left;">Ilmoitustyyppi</label> 
 			<select  id="adtypelist" th:field="*{adtype}" >
 					<option th:each="adtype: ${adtypes}" th:value="${adtype.adtypeid}" th:text="${adtype.name}"></option>
 			</select>

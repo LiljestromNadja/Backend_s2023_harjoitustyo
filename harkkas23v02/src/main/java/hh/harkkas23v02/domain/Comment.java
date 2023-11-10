@@ -19,8 +19,7 @@ public class Comment {
 	private long commentid;
 	
 	//@NotEmpty(message = "Your comment cannot be empty! ")
-	private String commentmessage;
-	
+	private String commentmessage;	
 	
 	@ManyToOne
 	@JoinColumn(name = "applicationuserid")

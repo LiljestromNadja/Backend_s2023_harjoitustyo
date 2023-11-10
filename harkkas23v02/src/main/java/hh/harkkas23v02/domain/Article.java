@@ -33,7 +33,7 @@ public class Article {
 	//@Size(min = 1, max = 300)
 	private String description;
 	
-	@NotEmpty(message = "Anna ilmoituksen julkaisijan nimi!")
+	@NotEmpty(message = "Anna ilmoituksen julkaisijan nimi tai puhelinnumero!")
 	//@Size(min = 1, max = 100)
 	private String publisher;	
 	

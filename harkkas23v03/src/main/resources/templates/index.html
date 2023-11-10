@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Index</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+		<!-- Lisättiin tyyli, bootstrap 4.0 -->
+	</head>
+	<body>
+		<div class="text-right">
+			<p class="text-right">
+				<i>Olet kirjautunut käyttäjänimellä: <b sec:authentication="name"></b>,	ja käyttäjäroolisi on: <b sec:authentication="principal.authorities"></b></i>
+			</p>
+	
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-dark" />
+			</form>
+		</div>
+	
+		<div style="text-align: center">
+			<h3>ILMOITUSPALSTA - Tervetuloa!</h3>
+			
+			 Tämä on aloitussivu
+		</div>
+	
+		<div style="clear: both; display: block; height: 40px;"></div>
+		<div style="text-align: center">
+			<a href="/articlelist"><button type="button" class="btn btn-light">Myynti-ilmoitukset</button></a> 
+			<a sec:authorize="hasAuthority('ADMIN')" href="/adtypes"><button type="button" class="btn btn-light">Ilmoitustyypit</button></a> 
+			<a sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')" href="/allComments"><button type="button" class="btn btn-light">Kaikki kommentit</button></a>
+						<a sec:authorize="hasAuthority('ADMIN')" href="/admin/register"><button type="button" class="btn btn-light">Luo uusi käyttäjä</button></a> 
+			<a sec:authorize="hasAuthority('ADMIN')" href="/admin/userlist"><button type="button" class="btn btn-light">Listaa käyttäjät</button></a>
+	<!-- 	<a sec:authorize="hasAuthority('ADMIN')" href="/h2-console"><button type="button" class="btn btn-light">h2</button></a><br>  -->
+	
+	
+		</div>
+	</body>
+</html>
+
+
+<!-- <button type="button" class="btn btn-light">Light</button>
+ -->
