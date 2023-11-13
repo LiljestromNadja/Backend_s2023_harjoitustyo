@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Lisää memo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Bootstrap linkki vaihdettu 09-11-2023 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+</head>
+<body>
+	<div>
+
+		<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a> 
+		<a href="/mymemos"><button class="text-left btn btn-light btn-sm">Takaisin muistiinpanolistaan</button></a>
+
+	</div>
+
+	<div class="text-right">
+		<i>You have signed in with username: <b sec:authentication="name"></b>,
+			and your role is: <b sec:authentication="principal.authorities"></b></i>
+
+		<br>
+
+		<form class="text-right" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-dark" />
+		</form>
+
+	</div>
+
+	<div style="clear: both; display: block; height: 40px;"></div>
+	
+	<h1 style="text-align: center;font-size: 25px">Lisää muistiinpano</h1>
+	
+	<div style="clear: both; display: block; height: 40px;"></div>
+	
+	<div style="text-align: center;">
+		<form th:object="${memo}" th:action="@{saveMemo}" action="#"	method="post">
+			<!-- Viedään "@{saveMemo}"endpointiin  -->
+			
+			<label for="memocontent">Kirjoita muistiinpanosi tähän:</label> 
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<textarea id="memocontent" th:field="*{memocontent}" rows="4" cols="50"></textarea>			
+
+			
+			<div th:if="${#fields.hasErrors('memocontent')}" th:errors="*{memocontent}">Error</div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+
+
+<!--  		<label for="memodate">Memon päiväys</label> <input type="text" th:field="*{memodate}" />
+			<div style="clear: both; display: block; height: 10px;"></div> Käyttäjä ei täytä-->
+
+
+
+			
+			
+			<label for="appuserlist" style="width: 290px; text-align: left;">Käyttäjä </label>			
+			<select style="width: 100px" id="appuserlist" th:field="*{applicationuser}" >				
+				<option th:each="applicationuser: ${applicationuser}" th:value="${applicationuser.id}" th:text="${applicationuser.username}"></option>
+			</select> 
+		
+			
+			<div style="clear: both; display: block; height: 40px;"></div>
+			
+			<input class="btn btn-dark btn-sm" type="submit" value="Tallenna memo"></input>
+		</form>
+
+
+	</div>
+</body>
+</html>
+
+
