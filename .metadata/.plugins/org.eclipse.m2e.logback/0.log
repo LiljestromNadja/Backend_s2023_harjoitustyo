@@ -1410,3 +1410,15 @@
 2023-11-13 22:43:13,877 [Worker-288: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 39 resources
 2023-11-13 22:43:13,888 [Worker-288: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v05\src\test\resources
 2023-11-13 22:43:51,527 [Worker-288: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-13 22:43:51,533 [Worker-288: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 39 resources
+2023-11-13 22:43:51,544 [Worker-288: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v05\src\test\resources
+2023-11-13 23:05:42,493 [Worker-293: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-13 23:05:42,522 [Worker-293: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 39 resources
+2023-11-13 23:05:42,540 [Worker-293: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v05\src\test\resources
+2023-11-13 23:06:39,279 [Worker-295: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-13 23:06:39,285 [Worker-295: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 39 resources
+2023-11-13 23:06:39,297 [Worker-295: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v04\src\test\resources
+2023-11-13 23:07:26,610 [Worker-294: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-13 23:07:26,616 [Worker-294: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 39 resources
+2023-11-13 23:07:26,627 [Worker-294: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v04\src\test\resources
+2023-11-13 23:08:16,978 [Worker-290: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource

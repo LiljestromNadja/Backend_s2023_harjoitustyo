@@ -22,15 +22,15 @@ public class AdtypeController {
 	@Autowired
 	AdtypeRepository adtyperepository;
 
-	//Listataan kaupungit
+	//Listataan ilmoitustyypit
 	@GetMapping("/adtypes")
 	public String getCities(Model model) {
-		System.out.println("--- LISTATAAN KAIKKI KAUPUNGIT --- AdtypeController");
+		System.out.println("--- LISTATAAN KAIKKI ILMOITUSTYYPIT --- AdtypeController");
 		model.addAttribute("adtypes", adtyperepository.findAll());
 		return "adtypes";
 	}
 
-	//Lisätään kaupunki, vain ADMIN  //09-11-2023
+	//Lisätään ilmoitustyyppi, vain ADMIN  //09-11-2023
 	@PreAuthorize("hasAuthority('ADMIN')") //metoditason tarkistus, onko oikeus lisätä
 	@GetMapping("/addAdtype")
 	public String addAdtype(Model model) {
@@ -39,7 +39,7 @@ public class AdtypeController {
 	}
 
 	
-	//Tallennetaan kaupunki, ADMIN
+	//Tallennetaan ilmoitustyyppi, ADMIN
 	@PostMapping("/saveAdtype")
 	@PreAuthorize("hasAuthority('ADMIN')") //metoditason tarkistus, onko oikeus lisätä 09-11-2023
 	public String saveAdtype(@Valid Adtype adtype, BindingResult bindingResult, Model model) {
@@ -48,12 +48,12 @@ public class AdtypeController {
 			return "addAdtype";
 		}
 
-		System.out.println(" --- NEW CITY SAVED: " + adtype + " --- AdtypeController");
+		System.out.println(" --- UUSI ILMOITUSTYYPPI TALLENNETTU: " + adtype + " --- AdtypeController");
 		adtyperepository.save(adtype);
 		return "redirect:adtypes";
 	}
 	
-	//Olemassa olevien kaupunkien muokkaus, ADMIN
+	//Olemassa olevien ilmoitustyyppien muokkaus, ADMIN
 	@PreAuthorize("hasAuthority('ADMIN')") //metoditason tarkistus onko oikeus
 	@RequestMapping(value = "/editAdtype/{id}", method = RequestMethod.GET)
 	public String editAdtype(@PathVariable("id") Long adtypeid, Model model) {
@@ -63,15 +63,15 @@ public class AdtypeController {
 	}
 	
 	
-	// Kaupungin poistaminen, ADMIN
+	// Ilmoitustyypin poistaminen, ADMIN
 	@PreAuthorize("hasAuthority('ADMIN')") //metoditason tarkistus, onko oikeus poistaa
 	@GetMapping("deleteAdtype/{id}")
 	public String deleteAdtype(@PathVariable("id") Long adtypeid, Model model) {
-		System.out.println("--- POISTETTU KAUPUNKI, id " + adtypeid + " ---- AdtypeController.java");
+		System.out.println("--- POISTETTU ILMOITUSTYYPPI, id " + adtypeid + " ---- AdtypeController.java");
 		if (adtyperepository.findById(adtypeid).get().getArticles().isEmpty()) {
 			adtyperepository.deleteById(adtypeid);
 		} else {
-			System.out.println("EI VOI POISTAA, KAUPUNKIIN ON LIITETTY MYYTÄVIÄ TUOTTEITA, id" + adtypeid +" ---- AdtypeController.java");
+			System.out.println("EI VOI POISTAA, ILMOITUSTYYPPIIN ON LIITETTY MYYTÄVIÄ TUOTTEITA, id" + adtypeid +" ---- AdtypeController.java");
 		}
 
 		return "redirect:../adtypes";
