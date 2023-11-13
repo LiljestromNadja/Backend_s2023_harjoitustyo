@@ -29,7 +29,7 @@ public class Harkkas23v05Application {
 
 
 		
-		System.out.println("Versio 04 (11-11-2023)");
+		System.out.println("Versio 05 (13-11-2023) --- Tämä versio on vielä kesken!");
 
 
 		System.out.println("- muista päivittää WebSecurityConfig.java WHITE LIST URLS");

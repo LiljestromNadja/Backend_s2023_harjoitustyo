@@ -38,6 +38,7 @@ public class ArticleController {
 		return "index";  //index.html
 	}
 	
+
 	//Kaikki myytävät tuotteet	
 	@RequestMapping(value = {"/articlelist"}) //endpoint:  http://localhost:8080/articlelist
 	public String articleList(Model model, @AuthenticationPrincipal UserDetails userDetails) {
