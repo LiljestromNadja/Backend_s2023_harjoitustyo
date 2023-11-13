@@ -1,8 +1,10 @@
-#updated 13-11-2023 harkkasyksydb memo
+#updated 13-11-2023 harkkasyksydb manytomany memocategory
 
 
 SET FOREIGN_KEY_CHECKS=0;
 
+DROP TABLE IF EXISTS memo_category;
+DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS memo;
 DROP TABLE IF EXISTS `comment`;
 DROP TABLE IF EXISTS adtype; 
@@ -119,11 +121,43 @@ VALUES ("Käyttäjän user muistiinpano","2023-11-11", 1),
 ("John has to remember...", "2023-11-11", 4 );
 
 
+CREATE TABLE categories (
+categoryid BIGINT NOT NULL AUTO_INCREMENT,
+categoryname VARCHAR(200) NOT NULL,
+PRIMARY KEY (categoryid)
+);
+
+
+INSERT INTO categories (categoryname)
+VALUES ("Testi"), 
+("Tärkeät"), 
+("EOS"), 
+("Mielenkiintoinen");
+
+
+
+CREATE TABLE memo_category (
+memocategoryid BIGINT NOT NULL AUTO_INCREMENT,
+memoid BIGINT,
+categoryid BIGINT,
+PRIMARY KEY(memocategoryid),
+FOREIGN KEY (memoid) REFERENCES memo(memoid),
+FOREIGN KEY (categoryid) REFERENCES categories(categoryid)
+
+);
+
+INSERT INTO memo_category(memoid, categoryid)
+VALUES (1,2), 
+(2,3), 
+(3,3);
+
 
 SELECT * FROM memo;
 SELECT * FROM `comment` WHERE articleid=3;
 
 
+SELECT * FROM categories;
+SELECT * FROM memo_category;
 
 
 
