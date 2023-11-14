@@ -13,6 +13,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import hh.harkkas23v06.domain.AdtypeRepository;
 import hh.harkkas23v06.domain.Article;
@@ -24,8 +25,8 @@ Esim. jos on nimetty vaikka (tai kopioitu eri projekteista)
 src/main/java/hh.bookstore04 ja src/test/java/k23.bookstore02 == JUnit-testaus ei löydä testiluokkaa. 
 *********************************************************************************************************/ 
 
-
-@DataJpaTest
+@SpringBootTest
+//@DataJpaTest //h2
 public class ArticleRepositoryTests {
 	
 	
@@ -37,21 +38,21 @@ public class ArticleRepositoryTests {
 	
 	String sTime = " " + LocalDateTime.now();
 	
-	//Find by title "Ohjelmoinnin salat"
+	//Find by title "Piano"
 	@Test
 	public void findArticleByTitle() {
 		System.out.println("JUNIT --- RUNNING TEST --- findArticleByTitle ---" + sTime);
-		List<Article> articles = articlerepository.findByTitle("Ohjelmoinnin salat");
-		assertThat(articles.get(0).getTitle().equalsIgnoreCase("ohjelmoinnin salat"));
+		List<Article> articles = articlerepository.findByTitle("Piano");
+		assertThat(articles.get(0).getTitle().equalsIgnoreCase("piano"));
 		
 	}
 	
-	//Find by title "Tietokannat"
+	//Find by title "Lastenvaatteita"
 	@Test
 	public void findArticleByAnotherTitle() {
 		System.out.println("JUNIT --- RUNNING TEST --- findArticleByAnotherTitle --- " + sTime);
-		List<Article> books = articlerepository.findByTitle("Tietokannat");
-		assertThat(books.get(0).getTitle().equalsIgnoreCase("tietokannat"));
+		List<Article> articles = articlerepository.findByTitle("Lastenvaatteita");
+		assertThat(articles.get(0).getTitle().equalsIgnoreCase("lastenvaatteita"));
 		
 	}
 	
@@ -88,7 +89,7 @@ public class ArticleRepositoryTests {
 		
 		List<Article> article = articlerepository.findById((long) 2);
 		//assertNotEquals(article.get().getId(), null);
-		article.get(0).setTitle("testi"); //listasta ensimmäinen indeksi
+		article.get(0).setTitle("JunitTesti2"); //listasta ensimmäinen indeksi
 		System.out.println("TESTING EDIT ARTICLE id 2 : " + article);
 		List<Article> articles = articlerepository.findByTitle("testi");
 		assertThat(articles).hasSize(1);
@@ -136,7 +137,7 @@ public class ArticleRepositoryTests {
 		articlerepository.save(article);
 		System.out.println("JUNIT --- createArticle ----ARTICLEID: " + article.getId());
 		
-		articlerepository.findById((long)4); 
+		articlerepository.findById((long)11); 
 		List<Article> articles = articlerepository.findById(1);
 		
 		assertThat(articles).hasSize(1); //tuloksen pitäisi olla 1
@@ -148,24 +149,24 @@ public class ArticleRepositoryTests {
 	}
 	
 
-	//Delete book 
+	//Delete article 
 	@Test
     public void deleteNewArticle() {
     	System.out.println("JUNIT --- RUNNING TEST --- deleteNewArticle --- " + sTime);
-		List<Article> books = articlerepository.findByTitle("Tietokannat");
-		Article book = books.get(0);
-		articlerepository.delete(book);
+		List<Article> articles = articlerepository.findByTitle("Tietokannat");
+		Article article = articles.get(0);
+		articlerepository.delete(article);
 		List<Article> newArticles = articlerepository.findByTitle("Tietokannat");
 		assertThat(newArticles).hasSize(0);
      }
 	
 
-	//get all books
+	//get all articles
     @Test
     public void findAllArticles() {
     	System.out.println("JUNIT --- RUNNING TEST --- findAllArticles --- " + sTime);
-    	Iterable<Article> books = articlerepository.findAll(); //haetaan kaikki kirjat
-    	assertThat(books).hasSize(3);// listan pituus pitäisi olla 3
+    	Iterable<Article> articles = articlerepository.findAll(); //haetaan kaikki kirjat
+    	assertThat(articles).hasSize(3);// listan pituus pitäisi olla 3
     }
     
 
