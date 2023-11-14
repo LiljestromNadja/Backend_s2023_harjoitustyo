@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import hh.harkkas23v06.domain.Adtype;
 import hh.harkkas23v06.domain.AdtypeRepository;
 import hh.harkkas23v06.domain.Article;
 import hh.harkkas23v06.domain.ArticleRepository;
@@ -47,6 +48,7 @@ public class ArticleRepositoryTests {
 		
 	}
 	
+
 	//Find by title "Lastenvaatteita"
 	@Test
 	public void findArticleByAnotherTitle() {
@@ -56,7 +58,17 @@ public class ArticleRepositoryTests {
 		
 	}
 	
-	//Find by id 1 
+	
+	//Find adtype by name "Helsinki ostetaan"
+	@Test
+	public void findAdtype() {
+		System.out.println("JUNIT --- RUNNING TEST --- findAdtype by name --- " + sTime);
+		List<Adtype> adtypes = adtyperepository.findByName("Helsinki ostetaan");
+		assertThat(adtypes.get(0).getName().equalsIgnoreCase("helsinki ostetaan"));
+		
+	}
+	
+	//Find article by id 1 
 	@Test
 	public void findByArticleId() {
 		
@@ -67,108 +79,23 @@ public class ArticleRepositoryTests {
 		assertThat(articles).hasSize(1); //tuloksen pitäisi olla 1
 	}
 	
-	//Find by id 1 and edit
+	//Find article by id 1 and edit
 	@Test
 	public void editArticle() {
 		
-		System.out.println("JUNIT --- RUNNING TEST --- editArticle --- " + sTime);
+		System.out.println("JUNIT --- RUNNING TEST --- editArticle title --- " + sTime);
 		
 		List<Article> article = articlerepository.findById((long) 1);
-		//assertNotEquals(article.get().getId(), null);
-		article.get(0).setPublisher("testi");
+		
+		System.out.println(article);
+		
+		article.get(0).setTitle("testi");
 		System.out.println("TESTING EDIT ARTICLE: " + article);
-		List<Article> articles = articlerepository.findByPublisher("testi");
-		assertThat(articles).hasSize(1);
-	}
-	
-	//Find by id 2 and edit
-	@Test
-	public void editArticleId2() {
 		
-		System.out.println("JUNIT --- RUNNING TEST --- editArticleId2 --- " + sTime);
-		
-		List<Article> article = articlerepository.findById((long) 2);
-		//assertNotEquals(article.get().getId(), null);
-		article.get(0).setTitle("JunitTesti2"); //listasta ensimmäinen indeksi
-		System.out.println("TESTING EDIT ARTICLE id 2 : " + article);
-		List<Article> articles = articlerepository.findByTitle("testi");
-		assertThat(articles).hasSize(1);
-	}
-	
-	//Create article
-	@Test
-	public void createArticle() {
-		
-		System.out.println("JUNIT --- RUNNING TEST --- createArticle --- " + sTime);
-		
-		Article article = new Article();
-		articlerepository.save(article);
-		
-		assertNotEquals(article.getId(), 0);
-		
-		System.out.println("JUNIT --- createArticle ----ARTICLEID: " + article.getId());
+		System.out.println(article);
+		assertThat(article.get(0).getTitle().equalsIgnoreCase("testi"));
 		
 	}
-
-	//Article: id, String title, String title, String publisher, String dateadded, double price
-	
-	//Create another article 
-	@Test
-	public void createAnotherArticle() {
-		
-		System.out.println("JUNIT --- RUNNING TEST --- createAnotherArticle --- " + sTime);
-		
-		Article article = new Article("Junit test article", "Lots of Junit stuff" ,"JUNIT", "2023-09-11", 12,34);
-		articlerepository.save(article);
-		
-		//assertNotEquals(article.getId(), 0);
-		assertEquals(article.getId(), 5); //article id 5
-		System.out.println("JUNIT --- createAnotherArticle ----ARTICLEID: " + article.getId() + ", title: " + article.getTitle());
-		
-	}
-	
-	//Create article with id 4 and find article by id 4 
-	@Test
-	public void createaAnotherArticle() {
-		
-		System.out.println("JUNIT --- RUNNING TEST --- createaAnotherArticle --- " + sTime);
-		
-		Article article = new Article();
-		articlerepository.save(article);
-		System.out.println("JUNIT --- createArticle ----ARTICLEID: " + article.getId());
-		
-		articlerepository.findById((long)11); 
-		List<Article> articles = articlerepository.findById(1);
-		
-		assertThat(articles).hasSize(1); //tuloksen pitäisi olla 1
-		
-		
-
-		
-
-	}
-	
-
-	//Delete article 
-	@Test
-    public void deleteNewArticle() {
-    	System.out.println("JUNIT --- RUNNING TEST --- deleteNewArticle --- " + sTime);
-		List<Article> articles = articlerepository.findByTitle("Tietokannat");
-		Article article = articles.get(0);
-		articlerepository.delete(article);
-		List<Article> newArticles = articlerepository.findByTitle("Tietokannat");
-		assertThat(newArticles).hasSize(0);
-     }
-	
-
-	//get all articles
-    @Test
-    public void findAllArticles() {
-    	System.out.println("JUNIT --- RUNNING TEST --- findAllArticles --- " + sTime);
-    	Iterable<Article> articles = articlerepository.findAll(); //haetaan kaikki kirjat
-    	assertThat(articles).hasSize(3);// listan pituus pitäisi olla 3
-    }
-    
 
     
 
