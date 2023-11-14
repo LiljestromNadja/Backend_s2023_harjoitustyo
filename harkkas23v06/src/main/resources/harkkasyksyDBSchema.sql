@@ -76,7 +76,7 @@ VALUES ("3 hengen sohva", "Hyvässä kunnossa, ollut käytössä 3 vuotta", "Mai
 ("Piano", "Omat kantajat mukaan", "Liisa 09-123456", "2023-10-31 23:41:45", 19.90, 2, 5), 
 ("Iso kasa reseptikirjoja", "tiedustele viestitse", "0411234567","2023-10-31 23:41:45", 0.01, 4, 1),
 ("Lastenvaatteita", "Siistissä kunnossa, kokoa 140-158", "0411234567", "2023-10-31 23:41:45", 5, 3, 3),
-("Ostetaan tietokoneita", "Käytettyjä kannettavia tietokoneita", "Pentin peeCee 0400123456", "2023-10-31 23:41:45", 0, 5, 6),
+("Ostetaan tietokoneita", "Käytettyjä kannettavia tietokoneita", "Pentin peeCee 0400123456", "2023-10-31 23:41:45", 0, 11, 6),
 ("Viherkasveja", "Tiedossa muutto, kasvikokoelma myyntiin, hinta neuvoteltavissa", "Heidi 05012345678", "2023-10-31 23:41:45", 0, 5,5);
 
 
@@ -123,8 +123,9 @@ VALUES ("Käyttäjän user muistiinpano","2023-10-31 23:41:45", 1),
 SELECT * FROM memo;
 SELECT * FROM `comment` WHERE articleid=3;
 SELECT * FROM article;
+SELECT * FROM adtype;
 
-
+SELECT * FROM `comment`;
 
 
 

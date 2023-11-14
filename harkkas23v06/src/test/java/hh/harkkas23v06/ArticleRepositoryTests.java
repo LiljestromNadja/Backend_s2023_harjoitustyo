@@ -52,7 +52,7 @@ public class ArticleRepositoryTests {
 	
 	String sTime = " " + LocalDateTime.now();
 	
-	//tätä käytetään id:n kasvattamiseen testien aikana
+	//tätä käytetään articlen id:n kasvattamiseen testien aikana
 	int i = 8; //select * from article;
 	
 	//14.11
