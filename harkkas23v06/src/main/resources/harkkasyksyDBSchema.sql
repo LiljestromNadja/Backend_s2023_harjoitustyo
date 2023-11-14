@@ -122,6 +122,8 @@ VALUES ("Käyttäjän user muistiinpano","2023-10-31 23:41:45", 1),
 
 SELECT * FROM memo;
 SELECT * FROM `comment` WHERE articleid=3;
+SELECT * FROM article;
+
 
 
 

@@ -2084,3 +2084,107 @@ org.eclipse.core.runtime.CoreException: Launch configuration Harkkas23v05Applica
 2023-11-14 19:54:04,501 [Worker-374: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
 2023-11-14 19:54:12,084 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
 2023-11-14 19:54:12,084 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:54:12,085 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 19:55:16,159 [Worker-382: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:55:16,159 [Worker-382: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:55:16,160 [Worker-382: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 19:57:07,906 [Worker-374: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:57:07,906 [Worker-374: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:57:07,907 [Worker-374: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 19:57:43,308 [Worker-382: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:57:43,308 [Worker-382: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:57:43,309 [Worker-382: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 19:58:13,117 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:58:13,117 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:58:13,119 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 19:59:21,078 [Worker-384: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:59:21,078 [Worker-384: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:59:21,079 [Worker-384: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 19:59:49,336 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:59:49,337 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 19:59:49,338 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:00:54,097 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:00:54,097 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:00:54,098 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:01:50,683 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:01:50,683 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:01:50,684 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:02:38,990 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:02:38,990 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:02:38,992 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:04:03,224 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:04:03,224 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:04:03,225 [Worker-385: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:06:08,985 [Worker-374: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:06:08,985 [Worker-374: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:06:08,987 [Worker-374: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:10:32,229 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:10:32,229 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:10:32,230 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:11:12,047 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:11:12,047 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-14 20:11:12,050 [Worker-387: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:13:25,689 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:13:25,689 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:13:25,690 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:15:05,957 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:15:05,958 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:15:05,959 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:15:51,863 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:15:51,863 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:15:51,864 [Worker-381: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:27:23,972 [Worker-389: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:27:23,973 [Worker-389: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:27:23,974 [Worker-389: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:27:34,891 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:27:34,891 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:27:34,892 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:28:49,634 [Worker-392: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:28:49,635 [Worker-392: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:28:49,636 [Worker-392: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:29:21,252 [Worker-389: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:29:21,253 [Worker-389: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:29:21,254 [Worker-389: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:29:32,203 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:29:32,203 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:29:32,204 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:30:46,613 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:30:46,614 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:30:46,615 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:31:47,626 [Worker-392: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:31:47,626 [Worker-392: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:31:47,627 [Worker-392: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:32:29,123 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:32:29,123 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:32:29,124 [Worker-383: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:36:03,656 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:36:03,656 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:36:03,657 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:37:36,495 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:37:36,495 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:37:36,496 [Worker-386: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:39:16,951 [Worker-391: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:39:16,951 [Worker-391: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:39:16,952 [Worker-391: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:40:04,630 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:40:04,630 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:40:04,631 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:41:56,118 [Worker-390: Launching ArticleRepositoryTests (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:41:56,118 [Worker-390: Launching ArticleRepositoryTests (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:41:56,119 [Worker-390: Launching ArticleRepositoryTests (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:43:36,629 [Worker-396: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:43:36,629 [Worker-396: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:43:36,630 [Worker-396: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:44:58,289 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:44:58,289 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:44:58,290 [Worker-390: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:45:19,190 [Worker-395: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:45:19,190 [Worker-395: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:45:19,191 [Worker-395: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:49:01,911 [Worker-394: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:49:01,911 [Worker-394: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:49:01,912 [Worker-394: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:49:45,310 [Worker-394: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:49:45,310 [Worker-394: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 20:49:45,311 [Worker-394: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-14 20:51:07,017 [Worker-392: Launching ArticleRepositoryTests (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource

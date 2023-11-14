@@ -4,8 +4,9 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -23,6 +24,8 @@ import hh.harkkas23v06.domain.Comment;
 import hh.harkkas23v06.domain.CommentRepository;
 import hh.harkkas23v06.domain.Memo;
 import hh.harkkas23v06.domain.MemoRepository;
+import jakarta.validation.constraints.AssertFalse;
+import jakarta.validation.constraints.AssertTrue;
 
 /* ******************************************************************************************************
  * HUOMHUOM! Pakettien erilaiset nimet src/main/java ja src/test/java saattavat aiheuttaa erroreita. 
@@ -49,7 +52,21 @@ public class ArticleRepositoryTests {
 	
 	String sTime = " " + LocalDateTime.now();
 	
+	//tätä käytetään id:n kasvattamiseen testien aikana
+	int i = 8; //select * from article;
 	
+	//14.11
+	//Testien lähtötilanne: tietokannassa 8 myyntitapahtumaa ja 6 kommenttia. Aja tarvittaessa harkkasyksyDBSchema
+	//saadaksesi tämän lähtötilanteen. 
+	
+	
+	//get all articles
+    @Test
+    public void findAllArticles() {
+    	System.out.println("JUNIT --- RUNNING TEST --- findAllArticles --- " + sTime);
+    	Iterable<Article> articles = articlerepository.findAll(); //haetaan kaikki myynti-ilmoitukset
+    	assertThat(articles).hasSize(i);//  tietokannasta select * from article;
+    }
 	
 	//Find by title "Piano"
 	@Test
@@ -133,6 +150,8 @@ public class ArticleRepositoryTests {
 	@Test
 	public void createArticle() {
 		
+		i = i+1;
+		
 		System.out.println("JUNIT --- RUNNING TEST --- createArticle --- " + sTime);
 		
 		Article article = new Article();
@@ -163,17 +182,19 @@ public class ArticleRepositoryTests {
 		commentRepository.save(comment);
 		
 		//assertNotEquals(article.getId(), 0);
-		assertNotEquals(comment.getCommentid(), 6); //comment id 6
+		assertEquals(comment.getCommentid(), 7); //tietokannassa 6 kommenttia ennen tätä
 		System.out.println("JUNIT --- createComment --- COMMENTID: " + comment.getCommentid() + ", commentmessage: " + comment.getCommentmessage());
 		
 	}
 	
 	
 	
-	//Create article with id 4 and find article by id 4 
+	//Create article 
 	@Test
 	public void createaAnotherArticle() {
 		
+		i=i+2; //tietokannan tilanne+2
+		System.out.println(i);
 		System.out.println("JUNIT --- RUNNING TEST --- createaAnotherArticle --- " + sTime);
 		
 		Article article = new Article();
@@ -182,18 +203,36 @@ public class ArticleRepositoryTests {
 		article.setPublisher("JUNIT");
 		article.setDescription("creating new article, test");
 		
+		
 		articlerepository.save(article);
+		System.out.println(article.getId());
 		System.out.println("JUNIT --- createArticle ----ARTICLEID: " + article.getId());
-		
-		//articlerepository.findById((long)11); 
-		//List<Article> articles = articlerepository.findById(13);
-		
-		assertEquals(article.getId(), 15);
-		
-		
-		
 
+		assertEquals(article.getId(), i); //huom, tietokannan tilanne+2 !!!
+
+	}
+	
+	
+	//Delete article 
+	@Test
+	public void deleteArticle() {
+		i=i+1;
+		System.out.println("JUNIT --- RUNNING TEST --- deleteArticle, create and delete article--- " + sTime);
 		
+		Article article = new Article();
+		
+		article.setTitle("Junit");
+		article.setPublisher("JUNIT");
+		article.setDescription("testing delete");
+		
+		articlerepository.save(article);
+		System.out.println(article.getId());
+		
+		articlerepository.deleteById(article.getId());
+		
+		List<Article> articles = articlerepository.findById(i); //etsitään id:llä joka äsken poistettiin, id=edellinen testi+1
+		
+		assertEquals(articles, null);
 
 	}
 	
