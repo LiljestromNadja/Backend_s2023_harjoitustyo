@@ -93,13 +93,13 @@ FOREIGN KEY (applicationuserid) REFERENCES application_users(id)
 );
 
 
-INSERT INTO `comment` (commentmessage, articleid, applicationuserid, commentcreated)
-VALUES ("Olisin kiinnostunut", 1,2,"2023-10-31 23:41:45"),
-("Pystyykö hinnasta neuvottelemaan? Tiina 050-123456", 4,2,"2023-10-31 23:41:45"), 
-("Tartteeko autoa noutoon", 4,2,"2023-10-31 23:41:45"), 
-("Hyvä vuosikerta, millaista hintaa ajattelit? ", 3,2,"2023-10-31 23:41:45"),
-("Täällä yksi Ankkalinnassa noina aikoina lorvinut mielellään verestäisi muistojaan. Missäs päin Vantaata sijaitsee?", 3,2,"2023-10-31 23:41:45"),
-("Täällä voisi olla kiinnostusta. Onko miltä vuosilta? ", 5,1,"2023-10-31 23:41:45");
+INSERT INTO `comment` (commentmessage, articleid, applicationuserid, commentcreated, wheretocontact)
+VALUES ("Olisin kiinnostunut", 1,2,"2023-10-31 23:41:45", "ida.esimerkkinen@mail.palvelin"),
+("Olisin kiinnostunut, millaisella aikataululla nouto onnistuisi?", 4,2,"2023-10-31 23:41:45", "Tiina 050-123456"), 
+("Tartteeko autoa noutoon", 4,2,"2023-10-31 23:41:45", "Heikki Hämärä, 0441234567"), 
+("Hyvä vuosikerta, millaista hintaa ajattelit? ", 3,2,"2023-10-31 23:41:45", "Arto, a.antikvariaatti@example.com"),
+("Täällä yksi Ankkalinnassa noina aikoina lorvinut mielellään verestäisi muistojaan. Missäs päin Vantaata sijaitsee?", 3,2,"2023-10-31 23:41:45", "Miro, 0501234567"),
+("Täällä voisi olla kiinnostusta. Onko miltä vuosilta? ", 5,1,"2023-10-31 23:41:45", "Minttu, 0411234567");
 
 
 
@@ -114,8 +114,8 @@ FOREIGN KEY (applicationuserid) REFERENCES application_users(id)
 
 INSERT INTO memo (memocontent, memodate, applicationuserid)
 VALUES ("Käyttäjän user muistiinpano","2023-10-31 23:41:45", 1),
-("Muistiiinpano, käyttäjä:admin", "2023-10-31 23:41:45", 2),
-("Käyttäjän muistiinpano, huolto", "2023-10-31 23:41:45", 3 ),
+("Admin testailee uutta ominaisuutta. Hyvin pelittää. ", "2023-10-31 23:41:45", 2),
+("Admin privileges come with great responsibility..", "2023-10-31 23:41:45", 3 ),
 ("John has to remember...", "2023-10-31 23:41:45", 4 );
 
 

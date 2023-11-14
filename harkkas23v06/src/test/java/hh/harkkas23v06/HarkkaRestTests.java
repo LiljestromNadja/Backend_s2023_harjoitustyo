@@ -32,16 +32,16 @@ public class HarkkaRestTests {
 	@Test
 	public void statusOk() throws Exception {
 		
-		System.out.println("BookRestTest --- testing endpoint booklist --- status ok");
+		System.out.println("HarkkaRestTest --- testing endpoint index --- Expect status ok");
 		
-		mockMvc.perform(get("/booklist")).andExpect(status().isOk());
+		mockMvc.perform(get("/index")).andExpect(status().isOk());
 
 	}
 	
 	@Test
 	public void responseTypeApplicationJson() throws Exception {
-		System.out.println("BookRestTest --- testing if endpoint /booksjson has content type JSON --- status ok");
-		mockMvc.perform(get("/booksjson"))
+		System.out.println("HarkkaRestTest --- testing if endpoint /articlesjson has content type JSON --- Expect status ok");
+		mockMvc.perform(get("/articlesjson"))
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				//.andExpect(content().contentType(MediaType.APPLICATION_ATOM_XML_VALUE))
 				.andExpect(status().isOk());
@@ -49,9 +49,9 @@ public class HarkkaRestTests {
 	
 	@Test
 	public void responseTypeApplicationJsonFail() throws Exception {		
-		System.out.println("BookRestTest --- testing if endpoint /booklis has content type JSON --- FAIL");
+		System.out.println("HarkkaRestTest --- testing if endpoint /articlelist has content type JSON --- Expecting FAIL");
 		
-		mockMvc.perform(get("/booklist")) //fail koska vastaus ei ole jsonia
+		mockMvc.perform(get("/articlelist")) //fail koska vastaus ei ole jsonia
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				//.andExpect(content().contentType(MediaType.APPLICATION_ATOM_XML_VALUE))
 				.andExpect(status().isOk());
@@ -60,17 +60,25 @@ public class HarkkaRestTests {
 	
 	@Test
 	public void sbApiStatusOk() throws Exception {
-		mockMvc.perform(get("/api/books")).andExpect(status().isOk());
+		mockMvc.perform(get("/api/articles")).andExpect(status().isOk());
 		
-		System.out.println("testing sb api --- status ok");	
+		System.out.println("HarkkaRestTest --- testing sb api --- Expecting status ok");	
+		
+	}
+	
+	@Test
+	public void sbApiMemoStatusOk() throws Exception {
+		mockMvc.perform(get("/api/comments")).andExpect(status().isOk());
+		
+		System.out.println("HarkkaRestTest --- testing sb api memos --- Expecting status ok");	
 		
 	}
 	
 	@Test
 	public void sbOneItemApiStatusOk() throws Exception {
-		mockMvc.perform(get("/api/books/1")).andExpect(status().isOk());
+		mockMvc.perform(get("/api/articles/1")).andExpect(status().isOk());
 		
-		System.out.println("testing sb api book id 1  --- status ok");	
+		System.out.println("testing sb api article id 1  --- status ok");	
 		
 	}
 
