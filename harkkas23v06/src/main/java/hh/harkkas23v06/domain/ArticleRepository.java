@@ -14,6 +14,7 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	
 	
 	
+	
 	//Optional<Article> findByArticleId(long id);
 	
 

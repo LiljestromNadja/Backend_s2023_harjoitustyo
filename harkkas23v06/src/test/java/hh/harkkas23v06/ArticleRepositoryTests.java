@@ -19,6 +19,10 @@ import hh.harkkas23v06.domain.Adtype;
 import hh.harkkas23v06.domain.AdtypeRepository;
 import hh.harkkas23v06.domain.Article;
 import hh.harkkas23v06.domain.ArticleRepository;
+import hh.harkkas23v06.domain.Comment;
+import hh.harkkas23v06.domain.CommentRepository;
+import hh.harkkas23v06.domain.Memo;
+import hh.harkkas23v06.domain.MemoRepository;
 
 /* ******************************************************************************************************
  * HUOMHUOM! Pakettien erilaiset nimet src/main/java ja src/test/java saattavat aiheuttaa erroreita. 
@@ -37,7 +41,15 @@ public class ArticleRepositoryTests {
 	@Autowired
 	AdtypeRepository adtyperepository;
 	
+	@Autowired
+	MemoRepository memoRepository; 
+	
+	@Autowired
+	CommentRepository commentRepository;
+	
 	String sTime = " " + LocalDateTime.now();
+	
+	
 	
 	//Find by title "Piano"
 	@Test
@@ -98,8 +110,94 @@ public class ArticleRepositoryTests {
 	}
 
     
+	
+	//Find article by id 2 and edit
+	@Test
+	public void editMemo() {
+		
+		System.out.println("JUNIT --- RUNNING TEST --- editMemo--- " + sTime);
+		
+		List<Memo> memo = memoRepository.findByMemoid((long) 2);
+		
+		//assertNotEquals(memo.get().getId(), null);
+		memo.get(0).setMemocontent("Junit testing, editing memo"); //listasta ensimmäinen indeksi
+		System.out.println("TESTING EDIT MEMO id 2 : " + memo);
+		
+		assertThat(memo.get(0).getMemocontent().equalsIgnoreCase("junit testing, editing memo"));
+		
+			
+	}
+	
+	
+	//Create article
+	@Test
+	public void createArticle() {
+		
+		System.out.println("JUNIT --- RUNNING TEST --- createArticle --- " + sTime);
+		
+		Article article = new Article();
+		
+		article.setTitle("Junittia!");
+		article.setPublisher("JUNIT");
+		article.setDescription("creating new article, test");
+		
+		articlerepository.save(article);
+		
+		assertNotEquals(article.getId(), 0);
+		
+		System.out.println("JUNIT --- createArticle ----ARTICLEID: " + article.getId());
+		
+	}
 
-    
+	//Create comment
+	@Test
+	public void createComment() {
+		
+		System.out.println("JUNIT --- RUNNING TEST --- createComment --- " + sTime);
+		
+		Comment comment = new Comment();
+		
+		comment.setCommentmessage("Junit");
+		
+		
+		commentRepository.save(comment);
+		
+		//assertNotEquals(article.getId(), 0);
+		assertNotEquals(comment.getCommentid(), 6); //comment id 6
+		System.out.println("JUNIT --- createComment --- COMMENTID: " + comment.getCommentid() + ", commentmessage: " + comment.getCommentmessage());
+		
+	}
+	
+	
+	
+	//Create article with id 4 and find article by id 4 
+	@Test
+	public void createaAnotherArticle() {
+		
+		System.out.println("JUNIT --- RUNNING TEST --- createaAnotherArticle --- " + sTime);
+		
+		Article article = new Article();
+		
+		article.setTitle("Testing articlerepository");
+		article.setPublisher("JUNIT");
+		article.setDescription("creating new article, test");
+		
+		articlerepository.save(article);
+		System.out.println("JUNIT --- createArticle ----ARTICLEID: " + article.getId());
+		
+		//articlerepository.findById((long)11); 
+		//List<Article> articles = articlerepository.findById(13);
+		
+		assertEquals(article.getId(), 15);
+		
+		
+		
+
+		
+
+	}
+	
+	
 
 
     
