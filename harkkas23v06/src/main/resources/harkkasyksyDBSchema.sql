@@ -47,7 +47,7 @@ VALUES ("Helsinki ostetaan"),
 ("Vantaa ostetaan"),
 ("Vantaa myydään"),
 ("Vantaa annetaan"),
-("Kaunianen ilmoitukset"),
+("Kauniainen ilmoitukset"),
 ("Joensuu ilmoitukset"), 
 ("Kempele ilmoitukset"), 
 ("Kotka ilmoitukset");
@@ -70,11 +70,11 @@ FOREIGN KEY (applicationuserid) REFERENCES application_users(id)
 
 
 INSERT INTO article (title, description, publisher, dateadded, price, adtypeid, applicationuserid) 
-VALUES ("3 hengen sohva", "Hyvässä kunnossa, ollut käytössä 3 vuotta", "Maija 050123456", "2023-10-31 23:41:45", 80, 1, 3),
-("LP-levysoitin", "Vanha, hyvinpalvellut, toimiva", "Matti, 04412345678", "2023-10-31 23:41:45", 54.90, 1, 2),
+VALUES ("3 hengen sohva", "Hyvässä kunnossa, ollut käytössä 3 vuotta", "Maija 050123456", "2023-10-31 23:41:45", 80, 2, 3),
+("LP-levysoitin", "Vanha, hyvinpalvellut, toimiva", "Matti, 04412345678", "2023-10-31 23:41:45", 54.90, 2, 2),
 ("Iso kasa Aku Ankka-sarjiksia", "Ankkalinnaa vuosilta 1980-1986", "Pentti, 0441234567", "2023-10-31 23:41:45", 0, 3, 2),
-("Piano", "Omat kantajat mukaan", "Liisa 09-123456", "2023-10-31 23:41:45", 19.90, 2, 5), 
-("Iso kasa reseptikirjoja", "tiedustele viestitse", "0411234567","2023-10-31 23:41:45", 0.01, 4, 1),
+("Piano", "Omat kantajat mukaan", "Liisa 09-123456", "2023-10-31 23:41:45", 19.90, 10, 5), 
+("Iso kasa reseptikirjoja", "tiedustele viestitse", "0411234567","2023-10-31 23:41:45", 0.01, 5, 1),
 ("Lastenvaatteita", "Siistissä kunnossa, kokoa 140-158", "0411234567", "2023-10-31 23:41:45", 5, 3, 3),
 ("Ostetaan tietokoneita", "Käytettyjä kannettavia tietokoneita", "Pentin peeCee 0400123456", "2023-10-31 23:41:45", 0, 11, 6),
 ("Viherkasveja", "Tiedossa muutto, kasvikokoelma myyntiin, hinta neuvoteltavissa", "Heidi 05012345678", "2023-10-31 23:41:45", 0, 5,5);

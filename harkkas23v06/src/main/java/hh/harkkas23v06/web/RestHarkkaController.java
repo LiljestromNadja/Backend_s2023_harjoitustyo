@@ -194,6 +194,13 @@ public class RestHarkkaController {
 		return adtypeRepository.findAll();
 	}
 	
+	//Palautetaan yksi ilmoitustyyppi id:n perusteella GET http://localhost:8080/adtypesjson/1
+	@GetMapping("/adtypesjson/{id}")
+	Optional<Adtype> getAdtype(@PathVariable Long id) {
+		System.out.println("--- PALAUTETAAN ILMOITUSTYYPPI, JONKA ID: " + id + " --- RestHarkkaController");
+		return adtypeRepository.findById(id);
+		
+	}
 	//Lisätään uusi ilmoitustyyppi POST http://localhost:8080/adtypesjson	
 	@PostMapping("/adtypesjson")
 	Adtype newAdtype(@RequestBody Adtype newAdtype) {

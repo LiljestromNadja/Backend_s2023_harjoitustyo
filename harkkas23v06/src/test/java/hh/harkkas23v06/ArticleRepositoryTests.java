@@ -4,16 +4,14 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 import java.util.List;
 
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import hh.harkkas23v06.domain.Adtype;
@@ -24,8 +22,7 @@ import hh.harkkas23v06.domain.Comment;
 import hh.harkkas23v06.domain.CommentRepository;
 import hh.harkkas23v06.domain.Memo;
 import hh.harkkas23v06.domain.MemoRepository;
-import jakarta.validation.constraints.AssertFalse;
-import jakarta.validation.constraints.AssertTrue;
+
 
 /* ******************************************************************************************************
  * HUOMHUOM! Pakettien erilaiset nimet src/main/java ja src/test/java saattavat aiheuttaa erroreita. 
@@ -53,7 +50,7 @@ public class ArticleRepositoryTests {
 	String sTime = " " + LocalDateTime.now();
 	
 	//tätä käytetään articlen id:n kasvattamiseen testien aikana
-	int i = 8; //select * from article;
+	int dbindex = 8; //select * from article;
 	
 	//14.11
 	//Testien lähtötilanne: tietokannassa 8 myyntitapahtumaa ja 6 kommenttia. Aja tarvittaessa harkkasyksyDBSchema
@@ -65,7 +62,7 @@ public class ArticleRepositoryTests {
     public void findAllArticles() {
     	System.out.println("JUNIT --- RUNNING TEST --- findAllArticles --- " + sTime);
     	Iterable<Article> articles = articlerepository.findAll(); //haetaan kaikki myynti-ilmoitukset
-    	assertThat(articles).hasSize(i);//  tietokannasta select * from article;
+    	assertThat(articles).hasSize(dbindex);//  tietokannasta select * from article;
     }
 	
 	//Find by title "Piano"
@@ -150,7 +147,7 @@ public class ArticleRepositoryTests {
 	@Test
 	public void createArticle() {
 		
-		i = i+1;
+		dbindex = dbindex+1;
 		
 		System.out.println("JUNIT --- RUNNING TEST --- createArticle --- " + sTime);
 		
@@ -193,8 +190,8 @@ public class ArticleRepositoryTests {
 	@Test
 	public void createaAnotherArticle() {
 		
-		i=i+2; //tietokannan tilanne+2
-		System.out.println(i);
+		dbindex=dbindex+2; //tietokannan tilanne+2
+		System.out.println(dbindex);
 		System.out.println("JUNIT --- RUNNING TEST --- createaAnotherArticle --- " + sTime);
 		
 		Article article = new Article();
@@ -208,7 +205,7 @@ public class ArticleRepositoryTests {
 		System.out.println(article.getId());
 		System.out.println("JUNIT --- createArticle ----ARTICLEID: " + article.getId());
 
-		assertEquals(article.getId(), i); //huom, tietokannan tilanne+2 !!!
+		assertEquals(article.getId(), dbindex); //huom, tietokannan tilanne+2 !!!
 
 	}
 	
@@ -216,7 +213,7 @@ public class ArticleRepositoryTests {
 	//Delete article 
 	@Test
 	public void deleteArticle() {
-		i=i+1;
+		dbindex=dbindex+1;
 		System.out.println("JUNIT --- RUNNING TEST --- deleteArticle, create and delete article--- " + sTime);
 		
 		Article article = new Article();
@@ -230,7 +227,7 @@ public class ArticleRepositoryTests {
 		
 		articlerepository.deleteById(article.getId());
 		
-		List<Article> articles = articlerepository.findById(i); //etsitään id:llä joka äsken poistettiin, id=edellinen testi+1
+		List<Article> articles = articlerepository.findById(dbindex); //etsitään id:llä joka äsken poistettiin, id=edellinen testi+1
 		
 		assertEquals(articles, null);
 

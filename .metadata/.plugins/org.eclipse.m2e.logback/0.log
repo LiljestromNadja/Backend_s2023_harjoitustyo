@@ -2194,3 +2194,23 @@ org.eclipse.core.runtime.CoreException: Launch configuration Harkkas23v05Applica
 2023-11-14 21:01:40,378 [Worker-399: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
 2023-11-14 21:01:40,379 [Worker-399: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
 2023-11-14 21:33:44,353 [Worker-403: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-14 21:33:44,353 [Worker-403: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-14 21:33:44,356 [Worker-403: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-15 14:23:29,831 [Worker-414: Launching HarkkaRestTests (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-15 14:23:29,832 [Worker-414: Launching HarkkaRestTests (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-15 14:23:29,836 [Worker-414: Launching HarkkaRestTests (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-15 14:29:19,989 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-11-15 14:34:40,670 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-15 14:34:40,685 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 39 resources
+2023-11-15 14:34:40,704 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-15 14:34:55,001 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-15 14:34:55,001 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-15 14:34:55,004 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-15 14:41:00,074 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-15 14:41:00,075 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-15 14:41:00,078 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-15 14:49:12,991 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
+2023-11-15 14:49:13,000 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 39 resources
+2023-11-15 14:49:13,026 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v06\src\test\resources
+2023-11-15 14:49:51,113 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource
+2023-11-15 14:49:51,113 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
