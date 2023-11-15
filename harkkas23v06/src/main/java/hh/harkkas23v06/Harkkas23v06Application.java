@@ -32,7 +32,7 @@ public class Harkkas23v06Application {
 		System.out.println("Versio 06 (14-11-2023)");
 
 
-		System.out.println("- REST, muista päivittää WebSecurityConfig.java WHITE LIST URLS");
+		//System.out.println("- REST, muista päivittää WebSecurityConfig.java WHITE LIST URLS");
 		System.out.println("- Eri versioiden dbschemat eroavat toisistaan");
 		
 		System.out.println("");

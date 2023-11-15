@@ -5,10 +5,10 @@ INDEX VERSION 1.132+C:\Users\nlilj\eclipse-workspace-backend-harkka\.metadata\.p
 891115367.index
 3071908803.index
 3734112669.index
-3437379173.index
 3340771764.index
 845294726.index
 3845883020.index
+3437379173.index
 1148158926.index
 1788346132.index
 1681381296.index
@@ -45,7 +45,6 @@ INDEX VERSION 1.132+C:\Users\nlilj\eclipse-workspace-backend-harkka\.metadata\.p
 1298709927.index
 2603577130.index
 49599792.index
-2838422446.index
 812804811.index
 4254825346.index
 2170219699.index

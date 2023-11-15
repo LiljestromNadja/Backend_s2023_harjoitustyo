@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Oma sivu</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!-- Bootstrap-linkki vaihdettu tähän 04-10-2023 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+		<!-- Lisättiin tyyli, bootstrap 4.0 -->
+	</head>
+	<body>
+		<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a>
+		
+		
+		<div class="text-right">
+			<i>Olet kirjautunut käyttäjänimellä: <b sec:authentication="name"></b>, ja käyttäjäroolisi on: <b sec:authentication="principal.authorities"></b></i>
+			<br>
+			<form class="text-right" th:action="@{/logout}" method="post">
+				<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-dark" />
+			</form>
+		</div> 
+		
+		 
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		<h1 style="text-align: center;  font-size: 25px">Oma sivu</h1>
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		<div >
+			<table  class="table table-hover table-sm">
+				<tr>
+					<th>Memo</th> <!-- th == tableHeader, taulukon otsikkorivi -->
+					<th></th>
+					<th></th>
+					<th style="text-align: center;">Päiväys</th>
+					<th></th>		
+					<th></th>			
+				</tr>
+				
+				<!-- Taulukon sisältö -->
+				<!-- Käydään kyseisen käyttäjän memot läpi, roolin täytyy olla ADMIN tai USER. Jokainen käyttäjä näkee VAIN omat muistiinpanonsa.  -->
+				<tr th:if="${memo.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER') or hasAuthority('ADMIN')" th:each="memo : ${memos}">
+				
+					<!-- Jokainen käyttäjä näkee vain omat julkaisunsa, roolin täytyy olla ADMIN TAI USER -->				
+				 	<td th:if="${memo.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER') or hasAuthority('ADMIN')" th:text="${memo.memocontent}"></td>		<!-- hienosti loopattu-->
+				 	
+					<td></td>
+					<td></td>
+					
+					<!-- Jokainen käyttäjä näkee vain oman muistiinpanonsa päiväyksen, roolin täytyy olla ADMIN TAI USER -->
+					<td style="text-align: center;" th:if="${memo.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER') or hasAuthority('ADMIN')" th:text="${memo?.memodate}"></td>	
+					
+					<td></td>
+					<!-- Jokainen käyttäjä voi muokata/poistaa vain omia muistiinpanojaan, roolin täytyy olla ADMIN tai USER -->
+					<td th:if="${memo.applicationuser.username == applicationuser.username}" sec:authorize="hasAuthority('USER') or hasAuthority('ADMIN')">
+						<a th:href="@{/editMemo/{id}(id=${memo.memoid})}" class="btn btn-outline-dark btn-sm">Muokkaa</a>
+						<a th:href="@{/deleteMemo/{id}(id=${memo.memoid})}" class="btn btn-outline-danger btn-sm">Poista</a>
+					</td>
+					
+				</tr>
+			</table>
+		</div>
+	
+	<div style="clear: both; display: block; height: 20px;"></div>
+	<div style="text-align: center;">
+		<a sec:authorize="hasAuthority('ADMIN') or hasAuthority('USER')" href="/addMemo"><button class="btn btn-light btn-sm">Lisää uusi memo</button></a>
+	</div>
+		
+		
+
+		
+		<div style="clear: both; display: block; height: 40px;"></div>
+		
+		
+	
+	</body>
+</html>

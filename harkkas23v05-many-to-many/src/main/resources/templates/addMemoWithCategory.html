@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+
+<!-- This page is for MemosViaCategories -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Aseta memolle kategoria</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Bootstrap linkki vaihdettu 09-11-2023 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!-- Lisättiin tyyli, bootstrap 4.0 -->
+</head>
+<body>
+	<div>
+
+		<a href="/index"><button class="text-left btn btn-light btn-sm">Takaisin aloitussivulle</button></a>
+		<a href="/memosviacategories/memos"><button class="text-left btn btn-light btn-sm">Takaisin Memojen listaukseen</button></a>
+
+	</div>
+
+	<div class="text-right">
+		<i>You have signed in with username: <b sec:authentication="name"></b>,
+			and your role is: <b sec:authentication="principal.authorities"></b></i>
+
+		<br>
+
+		<form class="text-right" th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-dark" />
+		</form>
+
+	</div>
+
+	<div style="clear: both; display: block; height: 40px;"></div>
+	
+	<h1 style="text-align: center;font-size: 25px">Aseta memolle kategoria</h1>
+	
+	<div style="clear: both; display: block; height: 40px;"></div>
+	
+	<div style="text-align: center;">
+		<form th:object="${memoandcategory}" th:action="@{saveMemoWithCategory}" action="#"	method="post">
+			
+			<label for="memolist" style="width:200px; text-align: left;">Valitse Memo</label> 
+			<select style="width: 200px" id="memolist" th:field="*{memo}" >
+					<option th:each="memo: ${memos}" th:value="${memo.memoid}" th:text="${memo.memocontent}"></option>
+			</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="categorylist" style="width:200px; text-align: left;">Valitse kategoria</label> 
+			<select style="width: 200px" id="categorylist" th:field="*{category}" >
+					<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.categoryname}"></option>
+			</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			
+			<input class="btn btn-dark btn-sm" type="submit" value="Tallenna"></input>
+		</form>
+
+
+	</div>
+</body>
+</html>
+
+
+<!-- Muistettavaa -->
+<!-- class="form-control" vaikuttaa elementin ulkoasuun  -->
+<!-- Esim,
+<label for="adtypelist">Adtype</label> <select id="adtypelist" th:field="*{adtype}" class="form-control"> 
+
+form-controlilla saa valikon koko sivun levyiseksi-->
