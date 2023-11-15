@@ -36,9 +36,7 @@
 			<label for="commentmessage">Kirjoita kommenttisi tähän:</label> 
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<textarea id="commentmessage" th:field="*{commentmessage}" rows="4" cols="50" th:placeholder="'Olet kommentoimassa myynti-ilmoitusta' + ': ' + *{article.title}"></textarea>			
-<!--otettu pois 01-11-2023 
-			</br><input type="text" style="width:200px; height:80px" onkeydown="return event.keyCode != 13;" id="commentmessage" th:field="*{commentmessage}" /> -->
-			<div th:if="${#fields.hasErrors('commentmessage')}" th:errors="*{commentmessage}">Error</div>
+			<div th:if="${#fields.hasErrors('commentmessage')}" th:errors="*{commentmessage}" style="font-size: 12px ">Error</div> <!-- Jos syöte ei halutunlaista -->
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="wheretocontact" style="width: 200px; text-align: left;">Yhteystietosi</label> 

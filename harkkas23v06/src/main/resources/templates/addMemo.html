@@ -41,7 +41,7 @@
 			<textarea id="memocontent" th:field="*{memocontent}" rows="4" cols="50"></textarea>			
 
 			
-			<div th:if="${#fields.hasErrors('memocontent')}" th:errors="*{memocontent}">Error</div>
+			<div th:if="${#fields.hasErrors('memocontent')}" th:errors="*{memocontent}" style="font-size: 12px ">Error</div> <!-- Jos syöte ei halutunlaista -->
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 

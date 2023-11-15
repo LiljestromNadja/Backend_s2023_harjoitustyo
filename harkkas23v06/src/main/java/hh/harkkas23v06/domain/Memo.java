@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class Memo {
@@ -18,6 +19,7 @@ public class Memo {
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //mariadb
 	private long memoid;
 	
+	@NotEmpty(message = "Memo ei voi olla tyhjä!")
 	private String memocontent;
 	
 	private String memodate;

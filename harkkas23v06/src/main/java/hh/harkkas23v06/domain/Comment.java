@@ -18,7 +18,7 @@ public class Comment {
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //mariadb
 	private long commentid;
 	
-	
+	//@NotEmpty(message = "Kommentti ei voi olla tyhjä!")
 	private String commentmessage;	
 	
 	@ManyToOne
