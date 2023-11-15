@@ -2689,3 +2689,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration Harkkas23v05Applica
 2023-11-15 23:38:42,241 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v05-many-to-many\src\test\resources
 2023-11-15 23:40:17,841 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource
 2023-11-15 23:40:17,853 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 42 resources
+2023-11-15 23:40:17,867 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\nlilj\eclipse-workspace-backend-harkka\harkkas23v05-many-to-many\src\test\resources
